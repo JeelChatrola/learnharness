@@ -3,6 +3,7 @@ const path = require("node:path");
 module.exports = function registerTutor(ctx, { running, notebook, launch, stopProcess }) {
   const agents = ["prober", "teacher", "practice"];
   ctx.registerInstructions({ agents, text: "Use the marimo tools when the learner wants to work in their lesson notebook. Read cells before editing, preserve learner work, and use a new cell for experiments. After running, read the cell again for its actual output or errors. If a call was interrupted, inspect the notebook before trying another edit or run." });
+  ctx.registerInstructions({ agents, text: "For visual exploration, build charts from the lesson's actual data. For a selectable scatter plot, wrap a plotly.graph_objects figure in mo.ui.plotly, set dragmode='select', and display the widget. In a separate reactive cell, summarize the widget's selected points with labels and units. When the learner refers to a highlighted group, read the latest summary before answering. If the selection is empty, say so. Base linked views on the same widget so they follow the learner's next selection." });
 
   async function pair(chatId, request, callSignal) {
     const state = running.get(chatId);

@@ -12,6 +12,12 @@ The tutor can list cells, read a cell’s code and output, add a cell, edit one,
 
 **Attach notebook** still sends a fixed snapshot with the next message. A tutor can work with the live notebook without an attachment.
 
+## Explore a chart with the tutor
+
+Ask, “Plot my measurements against trial number so I can drag across a group.” The tutor can build a selectable Plotly chart and a cell that shows the selected rows. Drag a box around some points, then ask, “How far above the prediction are these?” A linked chart can use the same selection and update whenever you drag a new box. The notebook updates between messages. The tutor reads the selection when it answers.
+
+The managed `uv` runtime includes Plotly. If you supply your own marimo installation, install `plotly` in its Python environment to use these charts. Other chart libraries, such as Altair, can also be used when installed in that environment.
+
 ## Share a result from a cell
 
 ```python

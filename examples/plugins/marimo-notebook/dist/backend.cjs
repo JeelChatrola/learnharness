@@ -23,7 +23,8 @@ function launch(cwd, directory, args, pairEnv) {
   if (process.env.LEARNHARNESS_MARIMO) return start(process.env.LEARNHARNESS_MARIMO, args);
   return start("marimo", args).catch(error => {
     if (error.code !== "ENOENT") throw error;
-    return start("uv", ["tool", "run", "--from", "marimo==" + version, "marimo", ...args]).catch(cause => {
+    return start("uv", ["tool", "run", "--from", "marimo==" + version,
+      "--with", "plotly>=5,<7", "marimo", ...args]).catch(cause => {
       if (cause.code !== "ENOENT") throw cause;
       throw new Error("Install marimo or uv, or set LEARNHARNESS_MARIMO to the marimo executable.");
     });

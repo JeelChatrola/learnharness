@@ -2,7 +2,7 @@
   "apiVersion": 1,
   "id": "marimo-notebook",
   "name": "Marimo Notebook",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "minAppVersion": "0.7.0",
   "description": "Share a reactive Python notebook with the lesson tutor, including live cell edits and execution.",
   "main": "main.js",
