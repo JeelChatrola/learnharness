@@ -1,0 +1,55 @@
+[data-session-surface]:has(.lh-marimo-columns) {
+  container-type: inline-size;
+}
+.lh-marimo-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.lh-marimo-columns > header { grid-area: 1 / 1 / 2 / -1; }
+.lh-marimo-lesson { grid-area: 2 / 1; min-width: 0; }
+.lh-marimo-panel {
+  grid-area: 2 / 2;
+  min-width: 0;
+  border-inline-start: 1px solid var(--border);
+}
+@container (max-width: 820px) {
+  .lh-marimo-columns {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 3fr) minmax(0, 2fr);
+  }
+  .lh-marimo-panel {
+    grid-area: 3 / 1;
+    border-inline-start: 0;
+    border-top: 1px solid var(--border);
+  }
+}
+.lh-marimo-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+.lh-marimo-bar {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  flex-wrap: wrap;
+  padding: .4rem .65rem;
+  border-bottom: 1px solid var(--border);
+}
+.lh-marimo-bar [role="status"] {
+  flex: 1;
+  min-width: 4rem;
+  font-size: .875rem;
+}
+.lh-marimo-bar button {
+  border: 1px solid var(--border);
+  border-radius: .4rem;
+  padding: .25rem .65rem;
+  font: inherit;
+  cursor: pointer;
+}
+.lh-marimo-bar button:disabled { opacity: .5; cursor: default; }
+.lh-marimo-panel iframe { width: 100%; flex: 1; min-height: 0; border: 0; }
